@@ -12,36 +12,41 @@
                 <h1>Welcome to HP's Paper Scissors and Rock Championships</h1>
             </hgroup>
             <div class="row">
-Como lo hice
+                <h2></h2>
 
+                <h2>Descripcion de la solucion implementada</h2>
 
-descripcion de la solucion implementada
-
-La aplicacion se baso en implementar tres clases para la manipulacion de los torneos. La clase Player se ocupo por
-convertir las listas en objetos para facilitar la validacion de los datos y de la estrategia. Se penso en un torneo
-que se relacionaba con juegos que tenian jugadores.
-
-Luego si hicieron varias clases tipo facade utilitarias para el acceso a la base de datos. La aplicacion se penso
-inicialmente para incluir un nombre y un id de torneo para que se pudiera granular el resultado de los participantes
-y para evitar ingresar dobles campeonatos, pero se prefirio seguir por la linea del ejercicio original. 
-
-Finalmente se hicieron tres clases tipo servlet para cada servicio rest, primero para aprovechar las opciones para
-cada verbo (get, post, put y delete). Junto con la libreria simple json quedo una solucion limpia y sencilla.
-
-
-justificacion de las tecnologias usadas
-
-Las tecnologias utilizadas fueron java y javascript utilizando lo mas que se pudiera el core de Java EE. Las unicas 
-excepciones por motivos de tiempo fueron el ORM (ormlite) y el generador de JSON (simple json) y para mantener la
-aplicacion limpia y liviana. Finalmente se uso jQuery para el frontend para cargar via ajax los servicios REST.
-
-Implementacion 
-
-Para la puesta en produccion se utilizo el servicio gratuito OpenShift que permite el hosting de java en servidores
-como tomcat y wildfly. Yo opte por usar Netbeans 8 junto con Wildfly con el sistema git para Open Shift. La unica
-desventaja es que el servicio no permite la opcion de exponer publicamente le codigo y por eso se uso github
-
- 
+                <ul>
+                    <li>El codigo esta en <a href="https://github.com/lorenzosjb/challenge">https://github.com/lorenzosjb/challenge</a></li>
+                    <li>El sitio en vivo esta en http://wildfly8-lorenzojimenez.rhcloud.com/</li>
+                </ul>
+                <p>
+                    La aplicacion se baso en implementar tres clases para la manipulacion de los torneos. La clase Player se ocupo por
+                    convertir las listas en objetos para facilitar la validacion de los datos y de la estrategia. Se penso en un torneo
+                    que se relacionaba con juegos que tenian jugadores.
+                </p>
+                <p>
+                    Luego si hicieron varias clases tipo facade utilitarias para el acceso a la base de datos. La aplicacion se penso
+                    inicialmente para incluir un nombre y un id de torneo para que se pudiera granular el resultado de los participantes
+                    y para evitar ingresar dobles campeonatos, pero se prefirio seguir por la linea del ejercicio original. 
+                </p>
+                <p>
+                    Finalmente se hicieron tres clases tipo servlet para cada servicio rest, primero para aprovechar las opciones para
+                    cada verbo (get, post, put y delete). Junto con la libreria simple json quedo una solucion limpia y sencilla.
+                </p>
+                <p>
+                <h2>justificacion de las tecnologias usadas</h2>
+                <p>
+                    Las tecnologias utilizadas fueron java y javascript utilizando lo mas que se pudiera el core de Java EE. Las unicas 
+                    excepciones por motivos de tiempo fueron el ORM (ormlite) y el generador de JSON (simple json) y para mantener la
+                    aplicacion limpia y liviana. Finalmente se uso jQuery para el frontend para cargar via ajax los servicios REST.
+                </p>
+                <h2>Implementacion</h2>
+                <p>
+                    Para la puesta en produccion se utilizo el servicio gratuito OpenShift que permite el hosting de java en servidores
+                    como tomcat y wildfly. Yo opte por usar Netbeans 8 junto con Wildfly con el sistema git para Open Shift. La unica
+                    desventaja es que el servicio no permite la opcion de exponer publicamente le codigo y por eso se uso github
+                </p>
             </div>
         </section>
     </body>
