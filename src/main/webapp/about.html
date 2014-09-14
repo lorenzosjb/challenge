@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>HP's PSR Championships</title>
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <section class='container'>
+            <hgroup>
+                <h1>Welcome to HP's Paper Scissors and Rock Championships</h1>
+            </hgroup>
+            <div class="row">
+Como lo hice
+
+
+descripcion de la solucion implementada
+
+La aplicacion se baso en implementar tres clases para la manipulacion de los torneos. La clase Player se ocupo por
+convertir las listas en objetos para facilitar la validacion de los datos y de la estrategia. Se penso en un torneo
+que se relacionaba con juegos que tenian jugadores.
+
+Luego si hicieron varias clases tipo facade utilitarias para el acceso a la base de datos. La aplicacion se penso
+inicialmente para incluir un nombre y un id de torneo para que se pudiera granular el resultado de los participantes
+y para evitar ingresar dobles campeonatos, pero se prefirio seguir por la linea del ejercicio original. 
+
+Finalmente se hicieron tres clases tipo servlet para cada servicio rest, primero para aprovechar las opciones para
+cada verbo (get, post, put y delete). Junto con la libreria simple json quedo una solucion limpia y sencilla.
+
+
+justificacion de las tecnologias usadas
+
+Las tecnologias utilizadas fueron java y javascript utilizando lo mas que se pudiera el core de Java EE. Las unicas 
+excepciones por motivos de tiempo fueron el ORM (ormlite) y el generador de JSON (simple json) y para mantener la
+aplicacion limpia y liviana. Finalmente se uso jQuery para el frontend para cargar via ajax los servicios REST.
+
+Implementacion 
+
+Para la puesta en produccion se utilizo el servicio gratuito OpenShift que permite el hosting de java en servidores
+como tomcat y wildfly. Yo opte por usar Netbeans 8 junto con Wildfly con el sistema git para Open Shift. La unica
+desventaja es que el servicio no permite la opcion de exponer publicamente le codigo y por eso se uso github
+
+ 
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>HP's PSR Championships</title>
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <section class='container'>
+            <hgroup>
+                <h1>Welcome to HP's Paper Scissors and Rock Championships</h1>
+            </hgroup>
+            <div class="row">
+                <section class='col-xs-12 col-sm-6 col-md-6'>
+                    <section>
+                        <p><a href="index.html">Return</a></p>
+                        <h2>REST API</h2>
+                        <p>&nbsp;</p>
+                        
+                        <h3>POST api/championship/result</h3>
+                        
+                        <p>Stores the first and second place of a tournament, each user is stored 
+                            with their respective scores. The user names will be unique, but the
+                            same user can win 1 or more championships. Returns the operation status
+                            if successfully.
+                        </p>  
+                        <h3>Resource information</h3>
+                        <ul>
+                            <li><b>HTTP Method:</b> POST</li>
+                            <li><b>Response format:</b> JSON</li>
+                            <li><b>Parameters:</b></li>
+                            <blockquote>
+                            <li>first (required): the name of the first place in the championship.</li>
+                            <li>second (required): the name of the second place in the championship.</li> 
+                            </blockquote>
+                            <li><b>Example:</b> <a id="result" href="api/championship/result?first=Dave&second=Armando">api/championship/result?first=Dave&second=Armando</a> <br>Please wait to see the results after clicking</li>
+                            <li><b>Example output:</b> { status: "sucess" }</li>
+                        </ul>
+                        
+                        <p>&nbsp;</p>
+                        <hr>
+                        <p>&nbsp;</p>
+                        
+                        <h3>POST api/championship/top</h3>
+                        
+                        <p>
+                            Retrieves the top players of all championships. Returns the list of player 
+                            names based on the count provided.
+                        </p>  
+                        <h3>Resource information</h3>
+                        <ul>
+                            <li><b>HTTP Method:</b> GET</li>
+                            <li><b>Response format:</b> JSON</li>
+                            <li><b>Parameters:</b></li>
+                            <blockquote>
+                            <li>count (optional): sets the count of records to be retrieved. If not provided, the default value is 10.</li>
+                            </blockquote>
+                            <li><b>Example:</b> <a id="top" href="api/championship/top?count=3">api/championship/top?count=3</a><br>Please wait to see the results after clicking</li>
+                            <li><b>Example output:</b> { players: ["Dave", "Armando", "Robert"] }</li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </section>
+                </section>
+                <section class="col-xs-12 col-sm-6 col-md-6">
+                    <section>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        
+                        <h3>POST api/championship/new</h3>
+                        
+                        <p>
+                            Receives the championship data and computes it to identify the winner.
+                            The first and second place are stored into a database with their respectives scores.
+                            Returns the winner of the championship.
+                        </p>  
+                        <h3>Resource information</h3>
+                        <ul>
+                            <li><b>HTTP Method:</b> POST</li>
+                            <li><b>Response format:</b> JSON</li>
+                            <li><b>Parameters:</b></li>
+                            <blockquote>
+                            <li>data (required): The data of the championship following the bracketed array standard.</li>
+                            </blockquote>
+                            <li><b>Example:</b> <a id="new" href='api/championship/new?data=[["Armando","P"],["Robert","S"]]'>api/championship/new?data=[["Armando","P"],["Robert","S"]]</a><br>Please wait to see the results after clicking</li>
+                            <li><b>Example output:</b> { players: ["Dave", "Armando", "Robert"] }</li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </section>
+                </section>
+            </div>
+        </section>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#result").click(function() {
+                    event.preventDefault();
+                    var link = $("#result").attr("href");
+                    $.post(link, function(data) {
+                        alert(JSON.stringify(data));
+                    });
+                });
+                $("#top").click(function() {
+                    event.preventDefault();
+                    var link = $("#top").attr("href");
+                    $.get(link, function(data) {
+                        alert(JSON.stringify(data));
+                    });
+                });
+                $("#new").click(function() {
+                    event.preventDefault();
+                    var link = $("#top").attr("href");
+                    $.post(link, function(data) {
+                        alert(JSON.stringify(data));
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

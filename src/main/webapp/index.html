@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>HP's PSR Championships</title>
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <section class='container'>
+            <hgroup>
+                <h1>Welcome to HP's Paper Scissors and Rock Championships</h1>
+            </hgroup>
+            <div class="row">
+                <section class='col-xs-12 col-sm-6 col-md-6'>
+                    <section>
+                        <h2>Options<br/></h2>
+                        
+                        <h3>Process a Championship</h3>
+                        <p>To load and process a new championship, please use <a href="newChampionship.jsp">this form</a></p> 
+                                
+                        <h3>Championship examples</h3>
+                        <p>If you don't know how to create championship files, these files can help you. Just download them.
+                        <ul>
+                            <li><a href="championship02.txt" download>Simple two person championship</a></li>
+                            <li><a href="championship04.txt" download>4 person's championship</a></li>
+                            <li><a href="championship08.txt" download>8 person's championship</a></li>
+                            <li><a href="championship16.txt" download>16 person's tournament</a></li>
+                            <li><a href="championship32.txt" download>32 person's tournament</a></li>
+                        </ul>
+                        
+                        <h3>About this app</h3>
+                        <p>To read how this application was made, <a href="about.html">click here</a>.</p>     
+                        
+                        <h3>Documentation</h3>
+                        <p>For more information on the API that uses the app, press <a href="restapi.html">here</a></p>     
+                    
+                        <h3>Source Code</h3>
+                        <p>To download all the source code go to <a href="https://github.com/">github.com/</a></p>     
+                    </section>
+                </section>
+                <section class="col-xs-12 col-sm-6 col-md-6">
+                    <h2>Top Players</h2>
+                    <h3 id='top'></h3>
+
+                    <h2>Clean database</h2>
+                    <button>To start over press press here</button>
+                </section>
+            </div>
+        </section>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            function loadChampions() {
+                $.getJSON("api/championship/top", function(data) {
+                    var usuarios = "<ul>";
+                    $.each(data.players, function( key, val ) {
+                        usuarios += "<li>" + val + "</li>";
+                    });
+                    $("#top").html(usuarios + "</ul>");
+                });
+            }
+            $(document).ready(function(){
+                loadChampions();
+                $("button").click(function() {
+                    $.ajax({
+                        url: "api/championship/top",
+                        type: "delete",
+                        datatype: "json",
+                        success: function(data) { 
+                            loadChampions(); 
+                        },
+                        error:function(){}   
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
